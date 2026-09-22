@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>단 하나의 거짓말: 텍스트 미스터리 추리 — 고객 지원</title>
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1b1b1d;
+      --muted: #6a6a72;
+      --rule: #e3e3e8;
+      --accent: #2f5d8c;
+      --chip: #f3f3f6;
+      --chip-on: #1b1b1d;
+      --chip-on-fg: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #16161a;
+        --fg: #e8e8ec;
+        --muted: #9a9aa4;
+        --rule: #2d2d34;
+        --accent: #8fb6dd;
+        --chip: #24242b;
+        --chip-on: #e8e8ec;
+        --chip-on-fg: #16161a;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #16161a;
+      --fg: #e8e8ec;
+      --muted: #9a9aa4;
+      --rule: #2d2d34;
+      --accent: #8fb6dd;
+      --chip: #24242b;
+      --chip-on: #e8e8ec;
+      --chip-on-fg: #16161a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Hiragino Sans",
+        "Noto Sans JP", "PingFang TC", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 16px 72px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    nav button {
+      font: inherit;
+      font-size: 13px;
+      line-height: 1.2;
+      padding: 7px 12px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--fg);
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      opacity: .8;
+    }
+
+    nav button[aria-current="true"] {
+      background: var(--chip-on);
+      color: var(--chip-on-fg);
+    }
+
+    nav button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    h1 {
+      font-size: 1.55rem;
+      line-height: 1.3;
+      margin: 0 0 6px;
+      letter-spacing: -.01em;
+    }
+
+    h2 {
+      font-size: 1.02rem;
+      margin: 34px 0 8px;
+      letter-spacing: -.005em;
+    }
+
+    h3 {
+      font-size: .97rem;
+      font-weight: 600;
+      margin: 22px 0 4px;
+      color: var(--fg);
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    h3+p {
+      color: var(--muted);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 22px;
+    }
+
+    .lede {
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 0 0 14px;
+      padding-left: 1.25em;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact {
+      font-size: 1.12rem;
+      margin: 6px 0 0;
+    }
+
+    .note {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    section[hidden] {
+      display: none;
+    }
+
+    @media (max-width:420px) {
+      .wrap {
+        padding-top: 22px;
+      }
+
+      h1 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+  <noscript>
+    <style>
+      nav {
+        display: none;
+      }
+
+      section[hidden] {
+        display: block !important;
+      }
+
+      section+section {
+        margin-top: 56px;
+        padding-top: 40px;
+        border-top: 2px solid var(--rule);
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <nav aria-label="Language">
+      <button type="button" data-lang="ko" lang="ko">한국어</button>
+      <button type="button" data-lang="en" lang="en">English</button>
+      <button type="button" data-lang="ja" lang="ja">日本語</button>
+      <button type="button" data-lang="es" lang="es">Español</button>
+      <button type="button" data-lang="pt" lang="pt">Português</button>
+      <button type="button" data-lang="zh" lang="zh-Hant">繁體中文</button>
+      <button type="button" data-lang="fr" lang="fr">Français</button>
+      <button type="button" data-lang="de" lang="de">Deutsch</button>
+    </nav>
+
+    <main id="doc">
+      <section id="ko" lang="ko" hidden>
+        <h1>고객 지원</h1>
+        <p class="meta">단 하나의 거짓말: 텍스트 미스터리 추리 &middot; 2026-09-22</p>
+        <p class="lede">「단 하나의 거짓말: 텍스트 미스터리 추리」를 플레이해 주셔서 감사합니다. 문의하실 내용이 있으면 아래 이메일로 연락해 주세요. 1인 개발이라 답장이 하루 이틀 늦어질 수
+          있는 점
+          양해 부탁드립니다.</p>
+        <h2>문의</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>자주 묻는 질문</h2>
+        <h3>기기를 바꾸면 진행 상황이 옮겨지나요?</h3>
+        <p>진행 상황과 설정은 기기 안에만 저장됩니다. 다른 기기로 자동으로 옮겨지지 않으며, 앱을 삭제하면 함께 지워집니다.</p>
+        <h3>사건이 풀리지 않습니다.</h3>
+        <p>판정에 필요한 근거는 전부 사건 배경 설명 안에 있습니다. 진술을 다시 읽으면서 배경에 적힌 시간·거리·수치와 맞지 않는 곳을 찾아보세요. 특별한 지식이 없어도 풀리도록 설계되어 있습니다.</p>
+        <h3>앱 언어를 바꾸고 싶어요.</h3>
+        <p>iOS [설정]에서 앱 목록을 연 뒤 이 앱을 선택하고 [언어]를 바꾸면 됩니다. 지원 언어는 한국어, 영어, 일본어, 스페인어, 포르투갈어, 번체중국어, 프랑스어, 독일어입니다.</p>
+        <h3>맞춤형 광고를 끄고 싶어요.</h3>
+        <p>[설정] → [개인정보 보호 및 보안] → [추적]에서 이 앱의 추적 허용을 끄시면 됩니다. 광고 자체는 계속 표시되지만 관심사에 맞춰지지는 않습니다.</p>
+        <h3>오탈자나 어색한 번역을 발견했어요.</h3>
+        <p>알려주시면 정말 감사하겠습니다. 어느 언어의 몇 번째 사건, 몇 단계인지 함께 적어 주시면 빠르게 고칠 수 있습니다.</p>
+        <h2>버그를 신고하실 때</h2>
+        <p>아래 내용을 함께 보내주시면 원인을 찾는 데 큰 도움이 됩니다.</p>
+        <ul>
+          <li>기기 모델 (예: iPhone 14)</li>
+          <li>iOS 버전</li>
+          <li>앱 버전</li>
+          <li>사건 번호와 단계</li>
+          <li>어떤 조작을 했을 때 일어났는지</li>
+          <li>가능하다면 화면 사진</li>
+        </ul>
+        <h2>개인정보처리방침</h2>
+        <p><a href="privacy/">개인정보처리방침 보기</a></p>
+        <p class="note">이 페이지는 쿠키를 사용하지 않으며, 방문자에 관한 어떤 정보도 저장하지 않습니다.</p>
+      </section>
+
+      <section id="en" lang="en" hidden>
+        <h1>Support</h1>
+        <p class="meta">Just One Lie: K-Thriller &middot; 2026-09-22</p>
+        <p class="lede">Thank you for playing “Just One Lie: K-Thriller”. If you need help, write to the address below.
+          This is
+          a one-person project, so a reply may take a day or two.</p>
+        <h2>Contact</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>Frequently asked questions</h2>
+        <h3>Does my progress carry over to a new device?</h3>
+        <p>Your progress and settings are stored only on your own device. They do not transfer to another device
+          automatically, and deleting the app deletes them.</p>
+        <h3>I&#x27;m stuck on a case.</h3>
+        <p>Everything you need in order to judge a statement is in the case background. Read the statements again and
+          look for the one that does not fit the times, distances or figures given there. Every case is built to be
+          solvable without outside knowledge.</p>
+        <h3>How do I change the app&#x27;s language?</h3>
+        <p>Open Settings on iOS, find this app in the list, and change Language. The supported languages are Korean,
+          English, Japanese, Spanish, Portuguese, Traditional Chinese, French and German.</p>
+        <h3>How do I turn off personalised ads?</h3>
+        <p>Go to Settings → Privacy &amp; Security → Tracking and turn off tracking for this app. Ads will still appear,
+          but they will no longer be tailored to your interests.</p>
+        <h3>I found a typo or an awkward translation.</h3>
+        <p>Please tell me — it is genuinely appreciated. Include the language, the case number and the stage, and it can
+          be fixed quickly.</p>
+        <h2>Reporting a bug</h2>
+        <p>Including the following makes it far easier to track down the cause.</p>
+        <ul>
+          <li>Device model (for example, iPhone 14)</li>
+          <li>iOS version</li>
+          <li>App version</li>
+          <li>Case number and stage</li>
+          <li>What you were doing when it happened</li>
+          <li>A screenshot, if you can</li>
+        </ul>
+        <h2>Privacy</h2>
+        <p><a href="privacy/">Read the privacy policy</a></p>
+        <p class="note">This page uses no cookies and stores nothing about its visitors.</p>
+      </section>
+
+      <section id="ja" lang="ja" hidden>
+        <h1>サポート</h1>
+        <p class="meta">たった一つの嘘：本格ミステリー推理 &middot; 2026-09-22</p>
+        <p class="lede">
+          「たった一つの嘘：本格ミステリー推理」をプレイしていただきありがとうございます。お困りのことがありましたら、下記のメールアドレスまでご連絡ください。個人での開発のため、返信に一日二日いただくことがあります。</p>
+        <h2>お問い合わせ</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>よくある質問</h2>
+        <h3>端末を変えると進行状況は引き継がれますか。</h3>
+        <p>進行状況と設定は端末内にのみ保存されます。別の端末へ自動的に引き継がれることはなく、アプリを削除すると一緒に消えます。</p>
+        <h3>事件が解けません。</h3>
+        <p>判断に必要な根拠はすべて事件の背景説明の中にあります。証言をもう一度読み、背景に書かれた時刻・距離・数値と合わない箇所を探してみてください。特別な知識がなくても解けるように作られています。</p>
+        <h3>アプリの言語を変えたいのですが。</h3>
+        <p>iOS の［設定］からアプリの一覧を開き、本アプリを選んで［言語］を変更してください。対応言語は韓国語、英語、日本語、スペイン語、ポルトガル語、繁体字中国語、フランス語、ドイツ語です。</p>
+        <h3>パーソナライズ広告を切りたいのですが。</h3>
+        <p>［設定］→［プライバシーとセキュリティ］→［トラッキング］で、本アプリのトラッキングを許可しない設定にしてください。広告自体は表示され続けますが、関心に合わせたものではなくなります。</p>
+        <h3>誤字や不自然な翻訳を見つけました。</h3>
+        <p>お知らせいただけると本当に助かります。どの言語の、何番目の事件の、どの段階かを添えていただけると、すぐに直せます。</p>
+        <h2>不具合のご報告</h2>
+        <p>以下をあわせてお送りいただけると、原因の特定が大きく進みます。</p>
+        <ul>
+          <li>端末の機種（例：iPhone 14）</li>
+          <li>iOS のバージョン</li>
+          <li>アプリのバージョン</li>
+          <li>事件の番号と段階</li>
+          <li>どの操作をしたときに起きたか</li>
+          <li>可能であれば画面の写真</li>
+        </ul>
+        <h2>プライバシー</h2>
+        <p><a href="privacy/">プライバシーポリシーを見る</a></p>
+        <p class="note">本ページは Cookie を使用せず、訪問者に関するいかなる情報も保存しません。</p>
+      </section>
+
+      <section id="es" lang="es" hidden>
+        <h1>Soporte</h1>
+        <p class="meta">Una Sola Mentira: K-Thriller &middot; 2026-09-22</p>
+        <p class="lede">Gracias por jugar a «Una Sola Mentira: K-Thriller». Si necesita ayuda, escriba a la dirección
+          que aparece
+          abajo. Es un proyecto de una sola persona, así que la respuesta puede tardar un día o dos.</p>
+        <h2>Contacto</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>Preguntas frecuentes</h2>
+        <h3>¿Mi progreso pasa a un dispositivo nuevo?</h3>
+        <p>Su progreso y sus ajustes se guardan únicamente en su propio dispositivo. No pasan a otro dispositivo
+          automáticamente, y si desinstala la app se borran con ella.</p>
+        <h3>Me he atascado en un caso.</h3>
+        <p>Todo lo que hace falta para juzgar una declaración está en los antecedentes del caso. Vuelva a leer las
+          declaraciones y busque la que no encaja con las horas, las distancias o las cifras que allí se indican. Cada
+          caso está construido para resolverse sin conocimientos previos.</p>
+        <h3>¿Cómo cambio el idioma de la app?</h3>
+        <p>Abra Ajustes en iOS, busque esta app en la lista y cambie Idioma. Los idiomas disponibles son coreano,
+          inglés, japonés, español, portugués, chino tradicional, francés y alemán.</p>
+        <h3>¿Cómo desactivo los anuncios personalizados?</h3>
+        <p>Vaya a Ajustes → Privacidad y seguridad → Rastreo y desactive el rastreo para esta app. Los anuncios seguirán
+          apareciendo, pero dejarán de ajustarse a sus intereses.</p>
+        <h3>He encontrado una errata o una traducción rara.</h3>
+        <p>Le agradecería mucho que me lo dijera. Si indica el idioma, el número del caso y la fase, se corrige
+          enseguida.</p>
+        <h2>Cómo informar de un fallo</h2>
+        <p>Incluir lo siguiente facilita mucho encontrar la causa.</p>
+        <ul>
+          <li>Modelo del dispositivo (por ejemplo, iPhone 14)</li>
+          <li>Versión de iOS</li>
+          <li>Versión de la app</li>
+          <li>Número del caso y fase</li>
+          <li>Qué estaba haciendo cuando ocurrió</li>
+          <li>Una captura de pantalla, si puede</li>
+        </ul>
+        <h2>Privacidad</h2>
+        <p><a href="privacy/">Ver la política de privacidad</a></p>
+        <p class="note">Esta página no utiliza cookies y no guarda ninguna información sobre quienes la visitan.</p>
+      </section>
+
+      <section id="pt" lang="pt" hidden>
+        <h1>Suporte</h1>
+        <p class="meta">Uma Só Mentira: K-Thriller &middot; 2026-09-22</p>
+        <p class="lede">Obrigado por jogar «Uma Só Mentira: K-Thriller». Se precisar de ajuda, escreva para o endereço
+          abaixo. É
+          um projeto de uma pessoa só, portanto a resposta pode demorar um ou dois dias.</p>
+        <h2>Contato</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>Perguntas frequentes</h2>
+        <h3>O meu progresso passa para um aparelho novo?</h3>
+        <p>O seu progresso e as suas configurações ficam guardados apenas no seu próprio aparelho. Não passam para outro
+          aparelho automaticamente e, se desinstalar o app, são apagados junto.</p>
+        <h3>Travei num caso.</h3>
+        <p>Tudo o que é preciso para julgar um depoimento está nos antecedentes do caso. Releia os depoimentos e procure
+          o que não bate com os horários, as distâncias ou os números indicados ali. Cada caso é construído para ser
+          resolvido sem conhecimento prévio.</p>
+        <h3>Como mudo o idioma do app?</h3>
+        <p>Abra os Ajustes no iOS, encontre este app na lista e mude Idioma. Os idiomas disponíveis são coreano, inglês,
+          japonês, espanhol, português, chinês tradicional, francês e alemão.</p>
+        <h3>Como desativo os anúncios personalizados?</h3>
+        <p>Vá em Ajustes → Privacidade e Segurança → Rastreamento e desative o rastreamento para este app. Os anúncios
+          continuarão a aparecer, mas deixarão de ser ajustados aos seus interesses.</p>
+        <h3>Encontrei um erro de digitação ou uma tradução estranha.</h3>
+        <p>Ficaria muito grato se me avisasse. Se indicar o idioma, o número do caso e a etapa, dá para corrigir
+          rapidamente.</p>
+        <h2>Como relatar um problema</h2>
+        <p>Incluir o seguinte facilita muito encontrar a causa.</p>
+        <ul>
+          <li>Modelo do aparelho (por exemplo, iPhone 14)</li>
+          <li>Versão do iOS</li>
+          <li>Versão do app</li>
+          <li>Número do caso e etapa</li>
+          <li>O que estava fazendo quando aconteceu</li>
+          <li>Uma captura de tela, se possível</li>
+        </ul>
+        <h2>Privacidade</h2>
+        <p><a href="privacy/">Ver a política de privacidade</a></p>
+        <p class="note">Esta página não utiliza cookies e não guarda nenhuma informação sobre quem a visita.</p>
+      </section>
+
+      <section id="zh" lang="zh-Hant" hidden>
+        <h1>客戶支援</h1>
+        <p class="meta">唯一謊言：文字懸疑與偵探推理 &middot; 2026-09-22</p>
+        <p class="lede">感謝您遊玩「唯一謊言：文字懸疑與偵探推理」。如果需要協助，請透過下方的電子郵件與我們聯繫。本作由一人開發，回覆可能需要一兩天，敬請見諒。</p>
+        <h2>聯絡方式</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>常見問題</h2>
+        <h3>換新裝置後，遊戲進度會跟著過去嗎？</h3>
+        <p>遊戲進度與設定只會儲存在您自己的裝置中，不會自動轉移到其他裝置；刪除應用程式時也會一併刪除。</p>
+        <h3>有個案件我卡住了。</h3>
+        <p>判斷證詞所需的依據，全部都在案件的背景說明裡。請重新閱讀證詞，找出和背景中所寫的時間、距離或數字對不上的地方。每個案件都設計成不需要額外知識就能解開。</p>
+        <h3>我想更改應用程式的語言。</h3>
+        <p>請在 iOS 的［設定］中開啟應用程式列表，選擇本應用程式後變更［語言］。支援的語言為韓文、英文、日文、西班牙文、葡萄牙文、繁體中文、法文、德文。</p>
+        <h3>我想關閉個人化廣告。</h3>
+        <p>請前往［設定］→［隱私權與安全性］→［追蹤］，將本應用程式的追蹤權限關閉。廣告仍會顯示，但不會再依照您的興趣調整。</p>
+        <h3>我發現了錯字或不自然的翻譯。</h3>
+        <p>非常感謝您願意告訴我。若能一併說明是哪一種語言、第幾個案件、第幾個階段，就能很快修正。</p>
+        <h2>回報問題時</h2>
+        <p>一併提供以下資訊，會大幅幫助我們找出原因。</p>
+        <ul>
+          <li>裝置型號（例如：iPhone 14）</li>
+          <li>iOS 版本</li>
+          <li>應用程式版本</li>
+          <li>案件編號與階段</li>
+          <li>在做什麼操作時發生的</li>
+          <li>如果方便的話，請附上畫面截圖</li>
+        </ul>
+        <h2>隱私權</h2>
+        <p><a href="privacy/">查看隱私權政策</a></p>
+        <p class="note">本頁面不使用 Cookie，也不會儲存任何關於訪客的資訊。</p>
+      </section>
+
+      <section id="fr" lang="fr" hidden>
+        <h1>Assistance</h1>
+        <p class="meta">Un Seul Mensonge: K-Thriller &middot; 2026-09-22</p>
+        <p class="lede">Merci de jouer à « Un Seul Mensonge: K-Thriller ». Si vous avez besoin d&#x27;aide, écrivez à
+          l&#x27;adresse ci-dessous. C&#x27;est un projet mené par une seule personne : une réponse peut prendre un jour
+          ou deux.</p>
+        <h2>Contact</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>Questions fréquentes</h2>
+        <h3>Ma progression est-elle transférée sur un nouvel appareil ?</h3>
+        <p>Votre progression et vos réglages sont enregistrés uniquement sur votre propre appareil. Ils ne sont pas
+          transférés automatiquement vers un autre appareil, et désinstaller l&#x27;application les supprime.</p>
+        <h3>Je bloque sur une affaire.</h3>
+        <p>Tout ce qu&#x27;il faut pour juger une déposition se trouve dans le contexte de l&#x27;affaire. Relisez les
+          dépositions et cherchez celle qui ne concorde pas avec les heures, les distances ou les chiffres qui y
+          figurent. Chaque affaire est conçue pour être résolue sans connaissance extérieure.</p>
+        <h3>Comment changer la langue de l&#x27;application ?</h3>
+        <p>Ouvrez Réglages sur iOS, trouvez cette application dans la liste et modifiez Langue. Les langues proposées
+          sont le coréen, anglais, japonais, espagnol, portugais, chinois traditionnel, français et allemand.</p>
+        <h3>Comment désactiver les publicités personnalisées ?</h3>
+        <p>Allez dans Réglages → Confidentialité et sécurité → Suivi et désactivez le suivi pour cette application. Les
+          publicités continueront de s&#x27;afficher, mais elles ne seront plus adaptées à vos centres d&#x27;intérêt.
+        </p>
+        <h3>J&#x27;ai trouvé une faute de frappe ou une traduction maladroite.</h3>
+        <p>Dites-le-moi, cela m&#x27;aide vraiment. Précisez la langue, le numéro de l&#x27;affaire et l&#x27;étape, et
+          la correction est rapide.</p>
+        <h2>Signaler un problème</h2>
+        <p>Joindre les éléments suivants facilite beaucoup la recherche de la cause.</p>
+        <ul>
+          <li>Modèle de l&#x27;appareil (par exemple, iPhone 14)</li>
+          <li>Version d&#x27;iOS</li>
+          <li>Version de l&#x27;application</li>
+          <li>Numéro de l&#x27;affaire et étape</li>
+          <li>Ce que vous faisiez au moment du problème</li>
+          <li>Une capture d&#x27;écran, si possible</li>
+        </ul>
+        <h2>Confidentialité</h2>
+        <p><a href="privacy/">Consulter la politique de confidentialité</a></p>
+        <p class="note">Cette page n&#x27;utilise aucun cookie et n&#x27;enregistre aucune information sur ses
+          visiteurs.</p>
+      </section>
+
+      <section id="de" lang="de" hidden>
+        <h1>Support</h1>
+        <p class="meta">Nur Eine Lüge: K-Thriller &middot; 2026-09-22</p>
+        <p class="lede">Danke, dass Sie „Nur Eine Lüge: K-Thriller“ spielen. Wenn Sie Hilfe brauchen, schreiben Sie an
+          die
+          Adresse unten. Das hier ist ein Ein-Personen-Projekt, eine Antwort kann also ein oder zwei Tage dauern.</p>
+        <h2>Kontakt</h2>
+        <p class="contact"><a href="mailto:mewmellow@proton.me">mewmellow@proton.me</a></p>
+        <h2>Häufige Fragen</h2>
+        <h3>Wird mein Spielstand auf ein neues Gerät übertragen?</h3>
+        <p>Spielstand und Einstellungen werden ausschließlich auf Ihrem eigenen Gerät gespeichert. Sie werden nicht
+          automatisch auf ein anderes Gerät übertragen, und wenn Sie die App löschen, werden sie mitgelöscht.</p>
+        <h3>Ich komme bei einem Fall nicht weiter.</h3>
+        <p>Alles, was Sie zur Beurteilung einer Aussage brauchen, steht in den Hintergrundangaben zum Fall. Lesen Sie
+          die Aussagen noch einmal und suchen Sie die eine, die nicht zu den dort genannten Zeiten, Entfernungen oder
+          Zahlen passt. Jeder Fall ist so gebaut, dass er ohne Vorwissen lösbar ist.</p>
+        <h3>Wie ändere ich die Sprache der App?</h3>
+        <p>Öffnen Sie unter iOS die Einstellungen, suchen Sie diese App in der Liste und ändern Sie Sprache. Verfügbar
+          sind Koreanisch, Englisch, Japanisch, Spanisch, Portugiesisch, Chinesisch (traditionell), Französisch und
+          Deutsch.</p>
+        <h3>Wie schalte ich personalisierte Werbung ab?</h3>
+        <p>Gehen Sie zu Einstellungen → Datenschutz &amp; Sicherheit → Tracking und schalten Sie das Tracking für diese
+          App ab. Werbung wird weiterhin angezeigt, richtet sich dann aber nicht mehr nach Ihren Interessen.</p>
+        <h3>Ich habe einen Tippfehler oder eine holprige Übersetzung gefunden.</h3>
+        <p>Sagen Sie mir gern Bescheid, das hilft wirklich. Mit Angabe der Sprache, der Fallnummer und der Stufe lässt
+          sich das schnell beheben.</p>
+        <h2>Einen Fehler melden</h2>
+        <p>Mit den folgenden Angaben lässt sich die Ursache deutlich leichter finden.</p>
+        <ul>
+          <li>Gerätemodell (zum Beispiel iPhone 14)</li>
+          <li>iOS-Version</li>
+          <li>App-Version</li>
+          <li>Fallnummer und Stufe</li>
+          <li>Was Sie gerade getan haben, als es passierte</li>
+          <li>Wenn möglich ein Bildschirmfoto</li>
+        </ul>
+        <h2>Datenschutz</h2>
+        <p><a href="privacy/">Datenschutzerklärung ansehen</a></p>
+        <p class="note">Diese Seite verwendet keine Cookies und speichert keinerlei Informationen über ihre Besucher.
+        </p>
+      </section>
+    </main>
+
+  </div>
+  <script>
+    (function () {
+      var ORDER = ['ko', 'en', 'ja', 'es', 'pt', 'zh', 'fr', 'de'];
+      var HL = { ko: "ko", en: "en", ja: "ja", es: "es", pt: "pt", zh: "zh-Hant", fr: "fr", de: "de" };
+      var TITLES = { ko: "고객 지원", en: "Support", ja: "サポート", es: "Soporte", pt: "Suporte", zh: "客戶支援", fr: "Assistance", de: "Support" };
+      var APP = '단 하나의 거짓말: 텍스트 미스터리 추리';
+      var secs = {}, btns = {};
+      ORDER.forEach(function (c) {
+        secs[c] = document.getElementById(c);
+        btns[c] = document.querySelector('nav button[data-lang="' + c + '"]');
+      });
+
+      function pick() {
+        var q = new URLSearchParams(location.search).get('lang');
+        var h = location.hash.replace('#', '');
+        var cands = [q, h].concat(navigator.languages || [navigator.language || '']);
+        for (var i = 0; i < cands.length; i++) {
+          var v = (cands[i] || '').toLowerCase();
+          if (!v) continue;
+          if (ORDER.indexOf(v) > -1) return v;
+          if (v.indexOf('zh') === 0) return 'zh';
+          var base = v.split('-')[0];
+          if (ORDER.indexOf(base) > -1) return base;
+        }
+        return 'en';
+      }
+
+      function show(c, push) {
+        if (ORDER.indexOf(c) < 0) c = 'en';
+        ORDER.forEach(function (k) {
+          secs[k].hidden = (k !== c);
+          btns[k].setAttribute('aria-current', k === c ? 'true' : 'false');
+        });
+        document.documentElement.lang = HL[c];
+        document.title = APP + ' \u2014 ' + TITLES[c];
+        if (push && history.replaceState) {
+          history.replaceState(null, '', '?lang=' + c);
+        }
+      }
+
+      ORDER.forEach(function (c) {
+        btns[c].addEventListener('click', function () { show(c, true); window.scrollTo(0, 0); });
+      });
+
+      show(pick(), false);
+    })();
+  </script>
+</body>
+
+</html>
